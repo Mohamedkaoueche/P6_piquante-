@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const auth = require('./routes/auth');
 const sauces = require('./routes/sauces');
@@ -10,6 +11,10 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+// static files
+app.use(express.static(path.join(__dirname, '.')));
+app.use('/images', express.static(__dirname + '/images'));
 
 mongoose.connect('mongodb://127.0.0.1:27017/piquante', { 
     useNewUrlParser: true,

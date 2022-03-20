@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const UserModel = require('../models/user');
 
 const addUser = async (req, res, next) => {
-    console.log(req.body);
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
           const user = new UserModel({
