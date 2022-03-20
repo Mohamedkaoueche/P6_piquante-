@@ -30,11 +30,19 @@ const sauceSchema = mongoose.Schema({
     min: 0,
     max: 10
   },
-  likes: [{
-    type: Number
+  likes: {
+    type: Number,
+    default: 0
+  },
+  dislikes: {
+    type: Number,
+    default: 0
+  },
+  usersLiked: [{
+    type: String
   }],
-  dislikes: [{
-    type: Number
+  usersDisliked: [{
+    type: String
   }]
 });
 
